@@ -120,7 +120,6 @@ const Portfolio = () => {
                   <span className="bg-gray-100 px-4 py-2 rounded-full">React.js</span>
                   <span className="bg-gray-100 px-4 py-2 rounded-full">Node.js</span>
                   <span className="bg-gray-100 px-4 py-2 rounded-full">OpenCV</span>
-                  <span className="bg-gray-100 px-4 py-2 rounded-full">Tableau</span>
                 </div>
               </div>
             </div>
