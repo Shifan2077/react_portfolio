@@ -254,12 +254,7 @@ const Portfolio = () => {
                     <a href="https://www.linkedin.com/in/md-shifan-nagarji-887886251/" className="bg-gray-200 hover:bg-blue-500 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
                       <i className="fab fa-linkedin-in"></i>
                     </a>
-                    {/* <a href="#" className="bg-gray-200 hover:bg-blue-400 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" className="bg-gray-200 hover:bg-pink-600 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                      <i className="fab fa-dribbble"></i>
-                    </a> */}
+                    
                   </div>
                 </div>
               </div>
@@ -273,7 +268,7 @@ const Portfolio = () => {
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
-              <a href="#" className="text-2xl font-bold gradient-text">Shifan Nagarji</a>
+              <a href="/about" className="text-2xl font-bold gradient-text">Shifan Nagarji</a>
               <p className="mt-2 text-gray-400">Creating digital experiences that matter.</p>
             </div>
             <div className="flex space-x-6">
