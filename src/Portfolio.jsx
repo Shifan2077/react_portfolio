@@ -104,10 +104,10 @@ const Portfolio = () => {
             </div>
             <div className="md:w-2/3 md:pl-12">
               <p className="text-lg mb-6 text-gray-700">
-                I'm a Computer Science undergraduate specializing in Artificial Intelligence and Machine Learning, with a strong foundation in Python, Java, and data analytics. My journey into tech began with a curiosity for solving real-world problems, and over the years, I've developed and deployed projects ranging from AI surveillance systems to secure cloud applications.
+                I'm a Computer Science undergraduate specializing in Artificial Intelligence and Machine Learning, with a strong foundation in Python, Java, and data analytics. My journey into tech began with a curiosity for solving real-world problems, and over the years, I've developed and deployed projects ranging from secure surveillance systems to secure cloud applications.
               </p>
               <p className="text-lg mb-8 text-gray-700">
-                I have hands-on experience through internships, simulations, and academic projects involving machine learning, web development (MERN stack), and cloud platforms like AWS. My approach is driven by curiosity, creativity, and a constant desire to turn innovative ideas into impactful digital solutions.
+                I have hands-on experience through simulations, and academic projects involving machine learning, web development (MERN stack), and cloud platforms like AWS. My approach is driven by curiosity, creativity, and a constant desire to turn innovative ideas into impactful digital solutions.
               </p>
               <div className="mb-8">
                 <h3 className="text-xl font-semibold mb-4">My Skills</h3>
@@ -158,7 +158,7 @@ const Portfolio = () => {
               <img src={raspi} alt="CCTV Security System with Human Detection" className="w-full h-48 object-cover" loading="lazy" />
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">CCTV Security System with Human Detection</h3>
-                <p className="text-gray-600 mb-4">A CCTV security system that detects humans after working hours in a store, supermarket, bank, etc and sends alerts to the user.</p>
+                <p className="text-gray-600 mb-4">A CCTV security system that detects humans after working hours in a store, supermarket, bank, etc and sends alerts to the user. This project is for normal cctv's which don' t have a initial security system with them.</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Python</span>
                   <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">Raspberry Pi</span>
