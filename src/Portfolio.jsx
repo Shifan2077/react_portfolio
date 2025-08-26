@@ -112,15 +112,16 @@ const Portfolio = () => {
               <div className="mb-8">
                 <h3 className="text-xl font-semibold mb-4">My Skills</h3>
                 <div className="flex flex-wrap gap-3">
-                  <span className="bg-gray-100 px-4 py-2 rounded-full">Python</span>
-                  <span className="bg-gray-100 px-4 py-2 rounded-full">Java</span>
-                  <span className="bg-gray-100 px-4 py-2 rounded-full">Machine Learning</span>
-                  <span className="bg-gray-100 px-4 py-2 rounded-full">Data Analysis</span>
-                  <span className="bg-gray-100 px-4 py-2 rounded-full">AWS</span>
-                  <span className="bg-gray-100 px-4 py-2 rounded-full">React</span>
-                  <span className="bg-gray-100 px-4 py-2 rounded-full">Node</span>
-                  <span className="bg-gray-100 px-4 py-2 rounded-full">OpenCV</span>
-                  <span className="bg-gray-100 px-4 py-2 rounded-full">SQL</span>
+                  <span className="bg-gray-100 px-4 py-2 rounded-full">Python 🔘🔘🔘</span>
+                  <span className="bg-gray-100 px-4 py-2 rounded-full">Java 🔘🔘</span>
+                  <span className="bg-gray-100 px-4 py-2 rounded-full">Machine Learning 🔘🔘</span>
+                  <span className="bg-gray-100 px-4 py-2 rounded-full">Data Analysis 🔘🔘🔘</span>
+                  <span className="bg-gray-100 px-4 py-2 rounded-full">AWS 🔘🔘🔘</span>
+                  <span className="bg-gray-100 px-4 py-2 rounded-full">React 🔘</span>
+                  <span className="bg-gray-100 px-4 py-2 rounded-full">Node 🔘🔘🔘</span>
+                  <span className="bg-gray-100 px-4 py-2 rounded-full">OpenCV 🔘🔘</span>
+                  <span className="bg-gray-100 px-4 py-2 rounded-full">SQL 🔘🔘🔘🔘🔘</span>
+                  <span className="bg-gray-100 px-4 py-2 rounded-full">Angular 🔘🔘🔘🔘</span>
                 </div>
               </div>
             </div>
@@ -149,8 +150,9 @@ const Portfolio = () => {
                   <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">CSS</span>
                   <span className="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Javascript</span>
                   <span className="text-xs bg-red-100 text-red-800 px-2 py-1 rounded">API</span>
+                  <span className="text-xs bg-yellow-100 text-orange-800 px-2 py-1 rounded">Angular</span>
                 </div>
-                <a href="https://github.com/Shifan2077/Movies-Database.git" className="text-primary font-medium hover:underline">View Project →</a>
+                <a href="https://thecinevault.netlify.app/" className="text-primary font-medium hover:underline">View Project →</a>
               </div>
             </div>
             {/* Project 2 */}
