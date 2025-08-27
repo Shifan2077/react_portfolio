@@ -118,9 +118,8 @@ const Portfolio = () => {
                   <span className="bg-gray-100 px-4 py-2 rounded-full">Data Analysis 🔘🔘🔘</span>
                   <span className="bg-gray-100 px-4 py-2 rounded-full">AWS 🔘🔘🔘</span>
                   <span className="bg-gray-100 px-4 py-2 rounded-full">React 🔘</span>
-                  <span className="bg-gray-100 px-4 py-2 rounded-full">Node 🔘🔘🔘</span>
                   <span className="bg-gray-100 px-4 py-2 rounded-full">OpenCV 🔘🔘</span>
-                  <span className="bg-gray-100 px-4 py-2 rounded-full">SQL 🔘🔘🔘🔘🔘</span>
+                  <span className="bg-gray-100 px-4 py-2 rounded-full">SQL 🔘🔘🔘🔘</span>
                   <span className="bg-gray-100 px-4 py-2 rounded-full">Angular 🔘🔘🔘🔘</span>
                 </div>
               </div>
