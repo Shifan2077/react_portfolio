@@ -1,11 +1,33 @@
-import React, { useEffect } from "react";
-import pfp from "./assets/pfp.JPG";
+import React, { useEffect, useRef, useState } from "react";
+import pfp from "./assets/pfp.png";
 import moviesdb from "./assets/moviesdb.png";
 import raspi from "./assets/raspi.png";
 import AWS from "./assets/AWS.png";
 
 const Portfolio = () => {
+  const [heroLeftVisible, setHeroLeftVisible] = useState(false);
+  const [heroRightVisible, setHeroRightVisible] = useState(false);
+  const [aboutLeftVisible, setAboutLeftVisible] = useState(false);
+  const [aboutRightVisible, setAboutRightVisible] = useState(false);
+  const aboutImageRef = useRef(null);
+  const aboutTextRef = useRef(null);
+  const skills = [
+    "Python 🔘🔘🔘",
+    "Java 🔘🔘",
+    "Machine Learning 🔘🔘",
+    "Data Analysis 🔘🔘🔘",
+    "AWS 🔘🔘🔘",
+    "React 🔘",
+    "OpenCV 🔘🔘",
+    "SQL 🔘🔘🔘🔘",
+    "Angular 🔘🔘🔘🔘"
+  ];
+  const projectsGridRef = useRef(null);
+  const [projectsVisible, setProjectsVisible] = useState(false);
+  const [projectsTitleVisible, setProjectsTitleVisible] = useState(false);
   useEffect(() => {
+    const t1 = setTimeout(() => setHeroLeftVisible(true), 100);
+    const t2 = setTimeout(() => setHeroRightVisible(true), 250);
     // Smooth scrolling for anchor links
     const anchors = document.querySelectorAll('a[href^="#"]');
     anchors.forEach(anchor => {
@@ -25,7 +47,36 @@ const Portfolio = () => {
         console.log('Mobile menu toggled');
       });
     }
+    // Observe About section elements on scroll
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target === aboutImageRef.current) {
+              setAboutLeftVisible(true);
+            }
+            if (entry.target === aboutTextRef.current) {
+              setAboutRightVisible(true);
+            }
+            if (entry.target === projectsGridRef.current) {
+              setProjectsVisible(true);
+              // let cards finish, then show title
+              setTimeout(() => setProjectsTitleVisible(true), 500);
+            }
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    if (aboutImageRef.current) observer.observe(aboutImageRef.current);
+    if (aboutTextRef.current) observer.observe(aboutTextRef.current);
+    if (projectsGridRef.current) observer.observe(projectsGridRef.current);
+
     return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      observer.disconnect();
       anchors.forEach(anchor => {
         anchor.removeEventListener('click', () => {});
       });
@@ -60,7 +111,7 @@ const Portfolio = () => {
       <section id="home" className="min-h-screen flex items-center pt-20">
         <div className="container mx-auto px-6 py-12 md:py-24">
           <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 mb-12 md:mb-0">
+            <div className={`md:w-1/2 mb-12 md:mb-0 transform transition-all duration-700 ease-out ${heroLeftVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}>
               <h1 className="text-3xl md:text-5xl font-bold mb-6">
                 Hi, I'm{' '}
                 <span className="gradient-text typing-animation">
@@ -78,7 +129,7 @@ const Portfolio = () => {
                 <a href="#contact" className="border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-6 py-3 rounded-lg font-medium transition-colors">Contact Me</a>
               </div>
             </div>
-            <div className="md:w-1/2 flex justify-center">
+            <div className={`md:w-1/2 flex justify-center transform transition-all duration-700 ease-out ${heroRightVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}>
               <div className="relative">
                 <div className="w-64 h-64 md:w-80 md:h-80 bg-primary rounded-full overflow-hidden shadow-xl">
                   <img src={pfp} alt="Shifan Nagarji portrait" className="w-full h-full object-cover" loading="lazy" />
@@ -99,10 +150,10 @@ const Portfolio = () => {
             About <span className="gradient-text">Me</span>
           </h2>
           <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+            <div ref={aboutImageRef} className={`md:w-1/3 mb-8 md:mb-0 flex justify-center transform transition-all duration-700 ease-out ${aboutLeftVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}>
               <img src="https://picsum.photos/300?random=2" alt="About me illustration" className="rounded-lg shadow-lg w-64 h-64 object-cover" loading="lazy" />
             </div>
-            <div className="md:w-2/3 md:pl-12">
+            <div ref={aboutTextRef} className={`md:w-2/3 md:pl-12 transform transition-all duration-700 ease-out ${aboutRightVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}>
               <p className="text-lg mb-6 text-gray-700">
                 I'm a Computer Science undergraduate specializing in Artificial Intelligence and Machine Learning, with a strong foundation in Python, Java, and data analytics. My journey into tech began with a curiosity for solving real-world problems, and over the years, I've developed and deployed projects ranging from secure surveillance systems to secure cloud applications.
               </p>
@@ -112,15 +163,15 @@ const Portfolio = () => {
               <div className="mb-8">
                 <h3 className="text-xl font-semibold mb-4">My Skills</h3>
                 <div className="flex flex-wrap gap-3">
-                  <span className="bg-gray-100 px-4 py-2 rounded-full">Python 🔘🔘🔘</span>
-                  <span className="bg-gray-100 px-4 py-2 rounded-full">Java 🔘🔘</span>
-                  <span className="bg-gray-100 px-4 py-2 rounded-full">Machine Learning 🔘🔘</span>
-                  <span className="bg-gray-100 px-4 py-2 rounded-full">Data Analysis 🔘🔘🔘</span>
-                  <span className="bg-gray-100 px-4 py-2 rounded-full">AWS 🔘🔘🔘</span>
-                  <span className="bg-gray-100 px-4 py-2 rounded-full">React 🔘</span>
-                  <span className="bg-gray-100 px-4 py-2 rounded-full">OpenCV 🔘🔘</span>
-                  <span className="bg-gray-100 px-4 py-2 rounded-full">SQL 🔘🔘🔘🔘</span>
-                  <span className="bg-gray-100 px-4 py-2 rounded-full">Angular 🔘🔘🔘🔘</span>
+                  {skills.map((label, index) => (
+                    <span
+                      key={label}
+                      style={{ transitionDelay: `${aboutRightVisible ? index * 90 : 0}ms` }}
+                      className={`bg-gray-100 px-4 py-2 rounded-full transform transition-all duration-500 ease-out ${aboutRightVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
+                    >
+                      {label}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
@@ -131,15 +182,15 @@ const Portfolio = () => {
       {/* Projects Section */}
       <section id="projects" className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+          <h2 className={`text-3xl md:text-4xl font-bold mb-4 text-center transform transition-all duration-700 ease-out ${projectsTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             My <span className="gradient-text">Projects</span>
           </h2>
-          <p className="text-lg text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+          <p className={`text-lg text-center text-gray-600 mb-12 max-w-2xl mx-auto transform transition-all duration-700 ease-out ${projectsTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             Here are some of my recent projects that showcase my skills and expertise.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div ref={projectsGridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Project 1 */}
-            <div className="project-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300">
+            <div style={{ transitionDelay: `${projectsVisible ? 0 : 0}ms` }} className={`project-card bg-white rounded-xl overflow-hidden shadow-md transform transition-all duration-500 ease-out ${projectsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}>
               <img src={moviesdb} alt="Movies Database Website" className="w-full h-48 object-cover" loading="lazy" />
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">Movies Database Website</h3>
@@ -155,7 +206,7 @@ const Portfolio = () => {
               </div>
             </div>
             {/* Project 2 */}
-            <div className="project-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300">
+            <div style={{ transitionDelay: `${projectsVisible ? 120 : 0}ms` }} className={`project-card bg-white rounded-xl overflow-hidden shadow-md transform transition-all duration-500 ease-out ${projectsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}>
               <img src={raspi} alt="CCTV Security System with Human Detection" className="w-full h-48 object-cover" loading="lazy" />
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">CCTV Security System with Human Detection</h3>
@@ -169,7 +220,7 @@ const Portfolio = () => {
               </div>
             </div>
             {/* Project 3 */}
-            <div className="project-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300">
+            <div style={{ transitionDelay: `${projectsVisible ? 240 : 0}ms` }} className={`project-card bg-white rounded-xl overflow-hidden shadow-md transform transition-all duration-500 ease-out ${projectsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}>
               <img src={AWS} alt="Cloud Based File Sharing Website" className="w-full h-48 object-cover" loading="lazy" />
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">Cloud Based File Sharing Website</h3>
