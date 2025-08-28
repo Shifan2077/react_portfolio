@@ -3,6 +3,7 @@ import pfp from "./assets/pfp.png";
 import moviesdb from "./assets/moviesdb.png";
 import raspi from "./assets/raspi.png";
 import AWS from "./assets/AWS.png";
+import abt from "./assets/abt_me.jpg";
 
 const Portfolio = () => {
   const [heroLeftVisible, setHeroLeftVisible] = useState(false);
@@ -225,7 +226,7 @@ const Portfolio = () => {
           </h2>
           <div className="flex flex-col md:flex-row items-center">
             <div ref={aboutImageRef} className={`md:w-1/3 mb-8 md:mb-0 flex justify-center transform transition-all duration-700 ease-out ${aboutLeftVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}>
-              <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=300&h=300&fit=crop&crop=face" alt="About me illustration" className="rounded-lg shadow-lg w-64 h-64 object-cover" loading="lazy" />
+              <img src={abt} alt="About me illustration" className="rounded-lg shadow-lg w-64 h-64 object-cover" loading="lazy" />
             </div>
             <div ref={aboutTextRef} className={`md:w-2/3 md:pl-12 transform transition-all duration-700 ease-out ${aboutRightVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}>
               <p className="text-lg mb-6 text-gray-700">
@@ -265,7 +266,7 @@ const Portfolio = () => {
           <div ref={projectsGridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Project 1 */}
             <div style={{ transitionDelay: `${projectsVisible ? 0 : 0}ms` }} className={`project-card bg-white rounded-xl overflow-hidden shadow-md transform transition-all duration-500 ease-out ${projectsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}>
-              <img src="https://images.unsplash.com/photo-1489875347897-49f64b51c1f8?w=400&h=200&fit=crop" alt="Movies Database Website" className="w-full h-48 object-cover" loading="lazy" />
+              <img src={ moviesdb } alt="Movies Database Website" className="w-full h-48 object-cover" loading="lazy" />
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">Movies Database Website</h3>
                 <p className="text-gray-600 mb-4">A full-featured Imdb clone website that shows movie rating, description and cast.</p>
@@ -281,7 +282,7 @@ const Portfolio = () => {
             </div>
             {/* Project 2 */}
             <div style={{ transitionDelay: `${projectsVisible ? 120 : 0}ms` }} className={`project-card bg-white rounded-xl overflow-hidden shadow-md transform transition-all duration-500 ease-out ${projectsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}>
-              <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=200&fit=crop" alt="CCTV Security System with Human Detection" className="w-full h-48 object-cover" loading="lazy" />
+              <img src={ raspi } alt="CCTV Security System with Human Detection" className="w-full h-48 object-cover" loading="lazy" />
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">CCTV Security System with Human Detection</h3>
                 <p className="text-gray-600 mb-4">A CCTV security system that detects humans after working hours in a store, supermarket, bank, etc and sends alerts to the user. This project is for normal cctv's which don' t have a initial security system with them.</p>
@@ -295,7 +296,7 @@ const Portfolio = () => {
             </div>
             {/* Project 3 */}
             <div style={{ transitionDelay: `${projectsVisible ? 240 : 0}ms` }} className={`project-card bg-white rounded-xl overflow-hidden shadow-md transform transition-all duration-500 ease-out ${projectsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}>
-              <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=200&fit=crop" alt="Cloud Based File Sharing Website" className="w-full h-48 object-cover" loading="lazy" />
+              <img src={AWS} alt="Cloud Based File Sharing Website" className="w-full h-48 object-cover" loading="lazy" />
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">Cloud Based File Sharing Website</h3>
                 <p className="text-gray-600 mb-4">A cloud based file sharing website that allows users to upload, download and share files with others.</p>
